@@ -1,0 +1,226 @@
+GET     http://ticketbetter.com/events/
+Accept: application/json
+
+# Response
+Status Code: 200(ok)
+Content-type application/json
+
+{
+	"events": [{
+			"id": 1,
+			"artist": "Shakira",
+			"date": "30/12/2023",
+			"place": "Auditorio Nacional",
+			"prices": {
+				"bronze": 1200,
+				"silver": 1800,
+				"gold": 2500,
+				"platinum": 3700,
+				"diamond": 5500
+			}
+		},
+		{
+			"id": 2,
+			"artist": "P!nk",
+			"date": "28/11/2023",
+			"place": "Foro Sol",
+			"prices": {
+				"bronze": 900,
+				"silver": 1200,
+				"gold": 1500,
+				"platinum": 2700,
+				"diamond": 4800
+			}
+		},
+		{
+			"id": 3,
+			"artist": "Belinda",
+			"date": "30/09/2024",
+			"place": "Lunario",
+			"prices": {
+				"bronze": 780,
+				"silver": 1100,
+				"gold": 1500,
+				"platinum": 1700
+			}
+		}
+	]
+}
+
+
+POST    http://ticketbetter.com/events/
+Accept: application/json
+
+{
+	"artist": "Yuridia",
+	"date": "25/07/2023",
+	"place": "Auditorio Nacional",
+	"prices": {
+		"bronze": 1780,
+		"silver": 2100,
+		"gold": 3500,
+		"platinum": 4700,
+		"diamond": 470
+	}
+}
+
+
+# Response
+Status Code: 201(created)
+Content-type application/json
+
+{
+    "id" : 4,
+    "artist" : "Yuridia",
+    "date" : "25/07/2023",
+    "place" : "Auditorio Nacional",
+    "prices" : {
+        "bronze" : 1780,
+        "silver" : 2100,
+        "gold" : 3500,
+        "platinum" : 3700,
+        "diamond" : 470 
+    }
+}
+
+
+
+PUT     http://ticketbetter.com/events/
+Accept: application/json
+
+{
+    "id" : 4,
+    "prices[diamond]" : 4700
+}
+
+# Response
+Status Code: 201(created)
+Content-type application/json
+
+{
+	"id": 4,
+	"artist": "Yuridia",
+	"date": "25/07/2023",
+	"place": "Auditorio Nacional",
+	"prices": {
+		"bronze": 1780,
+		"silver": 2100,
+		"gold": 3500,
+		"platinum": 3700,
+		"diamond": 4700
+	}
+}
+
+
+
+DELETE  http://ticketbetter.com/events/
+Accept: application/json
+
+{
+    "id" : 4
+}
+
+# Response
+Status Code: 200(ok)
+Content-type application/json
+
+
+
+
+
+
+GET     http://ticketbetter.com/clients/
+Accept: application/json
+
+# Response
+Status Code: 200(ok)
+Content-type application/json
+
+{
+	"clients": [{
+			"id": 601,
+			"name": "Juan",
+			"first-name": "Pérez",
+			"age": 38,
+			"vip-level": 3
+		},
+		{
+			"id": 602,
+			"name": "Jose",
+			"first-name": "González",
+			"age": 25,
+			"vip-level": 7
+		},
+		{
+			"id": 603,
+			"name": "Joel",
+			"first-name": "Gómez",
+			"age": 40,
+			"vip-level": 10
+		}
+	]
+}
+
+
+
+
+POST    http://ticketbetter.com/clients/
+Accept: application/json
+
+{
+    "name" : "Guillermo",
+    "first-name" : "López",
+    "age" : 36,
+    "vip-level" : 8
+}
+
+
+# Response
+Status Code: 201(created)
+Content-type application/json
+
+{
+    "id" : 604,
+    "name" : "Guillermo",
+    "first-name" : "López",
+    "age" : 36,
+    "vip-level" : 8
+}
+
+
+
+
+PUT     http://ticketbetter.com/clients/
+Accept: application/json
+
+{
+    "id" : 604,
+    "vip-level" : 10
+}
+
+
+# Response
+Status Code: 201(created)
+Content-type application/json
+
+{
+    "id" : 604,
+    "name" : "Guillermo",
+    "first-name" : "López",
+    "age" : 36,
+    "vip-level" : 10
+}
+
+
+
+
+DELETE  http://ticketbetter.com/clients/
+Accept: application/json
+
+{
+    "id" : 601
+}
+
+# Response
+Status Code: 200(ok)
+Content-type application/json
